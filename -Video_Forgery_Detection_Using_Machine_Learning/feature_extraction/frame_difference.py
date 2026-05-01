@@ -99,4 +99,4 @@ if __name__ == "__main__":
     print(f"Single diff shape: {diff.shape}")
     print(f"Batch diffs shape: {diffs.shape}")
     print(f"Temporal score: {temporal_difference_score(frames):.2f}")
-    print("✅ Frame difference working!")
+    print("[OK] Frame difference working!")

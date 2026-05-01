@@ -124,4 +124,4 @@ if __name__ == "__main__":
     print(f"LBP shape: {lbp.shape}")
     print(f"Multi-scale LBP shape: {multi_lbp.shape}")
     print(f"Cloning score: {cloning_score:.2f}%")
-    print("✅ LBP features working!")
+    print("[OK] LBP features working!")

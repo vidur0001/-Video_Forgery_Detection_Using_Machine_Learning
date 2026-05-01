@@ -414,12 +414,12 @@ def create_presentation():
     p.font.color.rgb = DARK_GRAY
 
     # Save presentation
-    filename = "/c/Users/GunjanMehta/Desktop/patent/Final_Presentation.pptx"
+    filename = r"C:\Users\GunjanMehta\Desktop\patent\Final_Presentation.pptx"
     prs.save(filename)
-    print(f"✅ PowerPoint Presentation created: {filename}")
+    print(f"[OK] PowerPoint Presentation created: {filename}")
 
 if __name__ == "__main__":
-    print("🎨 Generating PowerPoint Presentation...")
+    print("Generating PowerPoint Presentation...")
     create_presentation()
-    print("\n✅ Presentation generation complete!")
-    print("📊 Generated file: Final_Presentation.pptx")
+    print("\nPresentation generation complete!")
+    print("Generated file: Final_Presentation.pptx")

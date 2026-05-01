@@ -1,4 +1,4 @@
-# 📐 Technical Documentation
+# Technical Documentation
 
 ## Video Forgery Detection Using Machine Learning
 
@@ -31,11 +31,11 @@ INPUT: Video File (.mp4, .avi, etc.)
     ↓
 STAGE 1: Frame Extraction
 ├─ Extract frames using OpenCV
-├─ Resize to 240×320 pixels
-└─ Convert BGR → RGB
+├─ Resize to 240x320 pixels
+└─ Convert BGR -> RGB
     ↓
 STAGE 2: Preprocessing
-├─ Grayscale conversion (RGB → Gray)
+├─ Grayscale conversion (RGB -> Gray)
 └─ Canny edge detection (threshold: 100, 200)
     ↓
 STAGE 3: Feature Extraction (7 Methods)
@@ -52,16 +52,16 @@ STAGE 4: Feature Fusion
 └─ Shape: (240, 320, 12)
     ↓
 STAGE 5: Deep Learning Model
-├─ Channel Reduction: Conv2D layers (12→3 channels)
+├─ Channel Reduction: Conv2D layers (12->3 channels)
 ├─ ResNet50: Pre-trained feature extractor (frozen)
-├─ MaxPooling2D: Spatial downsampling (2×2)
+├─ MaxPooling2D: Spatial downsampling (2x2)
 ├─ Global Average Pooling: Flatten features
-├─ Dense Layers: Classification (512→256→128→1)
+├─ Dense Layers: Classification (512->256->128->1)
 └─ Sigmoid Activation: Binary output
     ↓
 OUTPUT: Probability [0-1]
 ├─ < 0.5: AUTHENTIC
-└─ ≥ 0.5: FORGED
+└─ >= 0.5: FORGED
 ```
 
 ---
@@ -81,7 +81,7 @@ diff = cv2.absdiff(frame_t, frame_t+1)
 - Inserted/deleted frames
 - Temporal manipulation
 
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ---
 
@@ -96,10 +96,10 @@ dct_normalized = cv2.normalize(dct, None, 0, 255, cv2.NORM_MINMAX)
 
 **What it detects:**
 - Double JPEG compression
-- Block artifacts (8×8 blocks)
+- Block artifacts (8x8 blocks)
 - Compression inconsistencies
 
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ---
 
@@ -117,7 +117,7 @@ cA, (cH, cV, cD) = coeffs  # 4 sub-bands
 - Texture inconsistencies
 - Fine-detail forgeries
 
-**Output:** 4 channels (120×160×4, resized to 240×320×4)
+**Output:** 4 channels (120x160x4, resized to 240x320x4)
 
 ---
 
@@ -134,7 +134,7 @@ lbp = local_binary_pattern(gray_frame, n_points=24, radius=3, method='uniform')
 - Cloning artifacts
 - Surface inconsistencies
 
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ---
 
@@ -151,7 +151,7 @@ _, binary = cv2.threshold(gray_frame, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTS
 - Shape inconsistencies
 - Structural changes
 
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ---
 
@@ -181,7 +181,7 @@ closing = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
 
 **Method:**
 ```python
-# Extract patches (8×8)
+# Extract patches (8x8)
 # Compute covariance matrix
 # Extract eigenvalues and eigenvectors
 # Reconstruct using top 10 components
@@ -192,7 +192,7 @@ closing = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
 - Principal component changes
 - Pattern deviations
 
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ---
 
@@ -204,11 +204,11 @@ closing = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
 Input Layer: (240, 320, 12)
     ↓
 Channel Reduction Block:
-├─ Conv2D(64, 3×3, padding=same, activation=relu)
+├─ Conv2D(64, 3x3, padding=same, activation=relu)
 ├─ BatchNormalization()
-├─ Conv2D(32, 3×3, padding=same, activation=relu)
+├─ Conv2D(32, 3x3, padding=same, activation=relu)
 ├─ BatchNormalization()
-└─ Conv2D(3, 1×1, padding=same, activation=relu)
+└─ Conv2D(3, 1x1, padding=same, activation=relu)
     ↓ Output: (240, 320, 3)
     
 ResNet50 (Pre-trained, Frozen):
@@ -388,23 +388,23 @@ python predict_video.py path/to/video.mp4
 VIDEO FORGERY DETECTION
 ============================================================
 
-📹 Extracting frames from video...
-✅ Extracted 50 frames
+ Extracting frames from video...
+[OK] Extracted 50 frames
 
 🔄 Extracting features from 50 frames...
-✅ Features extracted! Shape: (50, 240, 320, 12)
+[OK] Features extracted! Shape: (50, 240, 320, 12)
 
 🔄 Making predictions...
 
 ============================================================
 RESULTS
 ============================================================
-📹 Video: test.mp4
-🎯 Result: FORGED
-📊 Confidence: 87.34%
+ Video: test.mp4
+ Result: FORGED
+ Confidence: 87.34%
 ============================================================
 
-❌ WARNING: This video appears to be FORGED!
+[ERROR] WARNING: This video appears to be FORGED!
 ```
 
 ---
@@ -414,7 +414,7 @@ RESULTS
 ### **9.1 Input Specifications**
 
 **Video Formats:** MP4, AVI, MOV, MKV, FLV, WMV
-**Frame Size:** 240×320 pixels (auto-resized)
+**Frame Size:** 240x320 pixels (auto-resized)
 **Color Space:** RGB (converted from BGR)
 **Max Frames:** 50 (for prediction), 100+ (for training)
 
@@ -459,12 +459,12 @@ RESULTS
 |---------|------------------|-----------------|
 | Input Channels | 3 (RGB only) | 12 (Multi-feature) |
 | Feature Types | 1 (Raw pixels) | 7 (Engineered) |
-| Edge Detection | ❌ No | ✅ Yes (Canny) |
-| Temporal Analysis | ❌ No | ✅ Yes (Frame Diff) |
-| Frequency Analysis | ❌ No | ✅ Yes (DCT + DWT) |
-| Texture Analysis | ❌ No | ✅ Yes (LBP) |
-| Morphology | ❌ No | ✅ Yes |
-| Statistical | ❌ No | ✅ Yes (Eigen) |
+| Edge Detection | [ERROR] No | [OK] Yes (Canny) |
+| Temporal Analysis | [ERROR] No | [OK] Yes (Frame Diff) |
+| Frequency Analysis | [ERROR] No | [OK] Yes (DCT + DWT) |
+| Texture Analysis | [ERROR] No | [OK] Yes (LBP) |
+| Morphology | [ERROR] No | [OK] Yes |
+| Statistical | [ERROR] No | [OK] Yes (Eigen) |
 | Forgery Types | Generic | Active + Passive |
 | Expected Accuracy | ~79% | 85-95% |
 | Robustness | Medium | High |
@@ -484,44 +484,44 @@ RESULTS
 
 ### **11.1 Advantages**
 
-✅ **Multi-Feature Fusion:**
+[OK] **Multi-Feature Fusion:**
 - 7 complementary methods cover different forgery aspects
 - Hard to fool all methods simultaneously
 - Robust against various forgery techniques
 
-✅ **Hybrid Approach:**
+[OK] **Hybrid Approach:**
 - Combines traditional CV (interpretable) with DL (powerful)
 - Best of both worlds
 - Transfer learning reduces training time
 
-✅ **Automated Pipeline:**
+[OK] **Automated Pipeline:**
 - No manual feature engineering needed
 - End-to-end training
 - Easy to use
 
-✅ **Forgery Type Classification:**
+[OK] **Forgery Type Classification:**
 - Distinguishes Active vs Passive forgery
 - Provides actionable insights
 - Better understanding of manipulation
 
 ### **11.2 Limitations**
 
-❌ **Training Data:**
+[ERROR] **Training Data:**
 - Requires labeled forgery dataset
 - Synthetic data gives low accuracy
 - Real dataset needed for production use
 
-❌ **Computational Cost:**
+[ERROR] **Computational Cost:**
 - Feature extraction is time-consuming (~10 FPS)
 - 12 channels require more memory
 - Slower than single-feature methods
 
-❌ **Fixed Input Size:**
-- All frames resized to 240×320
+[ERROR] **Fixed Input Size:**
+- All frames resized to 240x320
 - May lose details in high-resolution videos
 - Not optimal for all video sizes
 
-❌ **Frame-Based:**
+[ERROR] **Frame-Based:**
 - Analyzes individual frames
 - May miss temporal forgeries spanning many frames
 - LSTM/temporal modeling could improve
@@ -607,11 +607,11 @@ RESULTS
 
 ### **System Highlights:**
 
-✅ **Comprehensive:** 7 feature extraction methods
-✅ **Advanced:** Hybrid CV + DL architecture
-✅ **Accurate:** 85-95% on real datasets
-✅ **Automated:** One-command training & prediction
-✅ **Production-Ready:** Clean, documented code
+[OK] **Comprehensive:** 7 feature extraction methods
+[OK] **Advanced:** Hybrid CV + DL architecture
+[OK] **Accurate:** 85-95% on real datasets
+[OK] **Automated:** One-command training & prediction
+[OK] **Production-Ready:** Clean, documented code
 
 ### **Key Metrics:**
 
@@ -633,4 +633,4 @@ RESULTS
 
 **Document Version:** 1.0
 **Last Updated:** April 21, 2026
-**Status:** Complete & Finalized ✅
+**Status:** Complete & Finalized [OK]

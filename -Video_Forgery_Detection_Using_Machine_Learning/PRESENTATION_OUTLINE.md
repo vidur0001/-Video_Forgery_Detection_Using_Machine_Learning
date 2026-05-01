@@ -161,7 +161,7 @@ Preprocessing (Grayscale + Canny Edge)
     ↓
 Feature Fusion (12-channel Tensor)
     ↓
-Channel Reduction (12→3 channels)
+Channel Reduction (12->3 channels)
     ↓
 ResNet50 Backbone (Frozen)
     ↓
@@ -176,7 +176,7 @@ FORGED / AUTHENTIC with Confidence Score
 
 #### Key Specifications:
 - **Input:** Video file (MP4, AVI, MOV, MKV, etc.)
-- **Frame Size:** 240×320 pixels
+- **Frame Size:** 240x320 pixels
 - **Feature Tensor:** 12-channel (240, 320, 12)
 - **Output:** Binary (0 = Authentic, 1 = Forged)
 
@@ -319,12 +319,12 @@ Binary Output (85-95% accuracy)
 | **Input Channels** | 3 | 12 | +400% |
 | **Feature Types** | 1 (pixels) | 7 | +700% |
 | **Accuracy** | 79% | 85-95% | +6-16% |
-| **Edge Detection** | ❌ | ✅ | New feature |
-| **Temporal Analysis** | ❌ | ✅ | New feature |
-| **Frequency Analysis** | ❌ | ✅ | New feature |
-| **Texture Analysis** | ❌ | ✅ | New feature |
-| **Morphology** | ❌ | ✅ | New feature |
-| **Statistics** | ❌ | ✅ | New feature |
+| **Edge Detection** | [ERROR] | [OK] | New feature |
+| **Temporal Analysis** | [ERROR] | [OK] | New feature |
+| **Frequency Analysis** | [ERROR] | [OK] | New feature |
+| **Texture Analysis** | [ERROR] | [OK] | New feature |
+| **Morphology** | [ERROR] | [OK] | New feature |
+| **Statistics** | [ERROR] | [OK] | New feature |
 | **Interpretability** | Low | High | Improved |
 | **Robustness** | Medium | High | Enhanced |
 
@@ -397,7 +397,7 @@ Binary Output (85-95% accuracy)
 - GPU recommended for real-time use
 
 **Input Constraints:**
-- Fixed input size (240×320)
+- Fixed input size (240x320)
 - May lose detail in 4K videos
 - Frame-based (misses temporal spans)
 
@@ -590,7 +590,7 @@ Binary Output (85-95% accuracy)
 - **REWIND Dataset:** 20 videos (10 original, 10 forged)
 - **SULFA Dataset:** Surrey University videos
 - **Custom Videos:** MP4, AVI, MOV, MKV formats
-- **Frame Resolution:** 240×320 pixels (auto-resized)
+- **Frame Resolution:** 240x320 pixels (auto-resized)
 - **Max Frames per Video:** 50+ (configurable)
 
 #### Feature Specifications:
@@ -607,17 +607,17 @@ Binary Output (85-95% accuracy)
 
 #### Successful Completion:
 
-✅ **Comprehensive System:** 7 complementary feature extractors
+[OK] **Comprehensive System:** 7 complementary feature extractors
 
-✅ **Production-Ready:** Fully automated end-to-end pipeline
+[OK] **Production-Ready:** Fully automated end-to-end pipeline
 
-✅ **High Accuracy:** 85-95% on real-world datasets
+[OK] **High Accuracy:** 85-95% on real-world datasets
 
-✅ **Significant Improvement:** 6-16% over single-feature baselines
+[OK] **Significant Improvement:** 6-16% over single-feature baselines
 
-✅ **Research Innovation:** Novel multi-feature fusion approach
+[OK] **Research Innovation:** Novel multi-feature fusion approach
 
-✅ **Well-Documented:** 2,500+ lines of clear, modular code
+[OK] **Well-Documented:** 2,500+ lines of clear, modular code
 
 #### Technical Achievements:
 
@@ -692,6 +692,6 @@ India
 
 **Presentation Duration:** 15-20 minutes  
 **Total Slides:** 17  
-**Status:** ✅ Final & Ready for Presentation  
+**Status:** [OK] Final & Ready for Presentation  
 **Date:** May 01, 2026
 

@@ -120,4 +120,4 @@ if __name__ == "__main__":
     print(f"DCT shape: {dct.shape}")
     print(f"DCT blocks shape: {dct_blocks.shape}")
     print(f"Artifact score: {artifact_score:.2f}")
-    print("✅ DCT features working!")
+    print("[OK] DCT features working!")

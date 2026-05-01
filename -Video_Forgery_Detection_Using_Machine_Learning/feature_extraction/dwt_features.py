@@ -116,4 +116,4 @@ if __name__ == "__main__":
     print(f"DWT shape: {dwt.shape}")
     print(f"Resized DWT shape: {resized_dwt.shape}")
     print(f"Forgery score: {forgery_score:.2f}")
-    print("✅ DWT features working!")
+    print("[OK] DWT features working!")

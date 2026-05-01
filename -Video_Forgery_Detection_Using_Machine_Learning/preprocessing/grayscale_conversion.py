@@ -65,4 +65,4 @@ if __name__ == "__main__":
     print(f"Input shape: {test_frame.shape}")
     print(f"Output shape: {gray.shape}")
     print(f"Output dtype: {gray.dtype}")
-    print("✅ Grayscale conversion working!")
+    print("[OK] Grayscale conversion working!")

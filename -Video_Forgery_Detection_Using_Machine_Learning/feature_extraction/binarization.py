@@ -142,4 +142,4 @@ if __name__ == "__main__":
     print(f"Binary (adaptive) shape: {binary_adaptive.shape}")
     print(f"Multi-binary shape: {multi_binary.shape}")
     print(f"Shape inconsistency: {inconsistency:.2f}")
-    print("✅ Binarization working!")
+    print("[OK] Binarization working!")

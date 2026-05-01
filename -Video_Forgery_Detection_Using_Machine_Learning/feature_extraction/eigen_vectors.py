@@ -163,4 +163,4 @@ if __name__ == "__main__":
     print(f"Eigen image shape: {eigen_image.shape}")
     print(f"Eigen energy: {energy:.2f}")
     print(f"Anomaly score: {anomaly:.2f}")
-    print("✅ Eigen vector features working!")
+    print("[OK] Eigen vector features working!")

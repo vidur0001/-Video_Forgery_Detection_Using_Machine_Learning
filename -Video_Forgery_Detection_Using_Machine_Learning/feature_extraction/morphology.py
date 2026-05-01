@@ -146,4 +146,4 @@ if __name__ == "__main__":
     print(f"Erosion shape: {erosion.shape}")
     print(f"Morphology features shape: {morph_features.shape}")
     print(f"Anomaly score: {anomaly:.2f}")
-    print("✅ Morphology operations working!")
+    print("[OK] Morphology operations working!")

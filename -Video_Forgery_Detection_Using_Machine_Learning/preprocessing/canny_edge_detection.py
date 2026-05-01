@@ -83,4 +83,4 @@ if __name__ == "__main__":
     print(f"Output shape: {edges.shape}")
     print(f"Adaptive output shape: {adaptive_edges.shape}")
     print(f"Edge pixels detected: {np.sum(edges > 0)}")
-    print("✅ Canny edge detection working!")
+    print("[OK] Canny edge detection working!")

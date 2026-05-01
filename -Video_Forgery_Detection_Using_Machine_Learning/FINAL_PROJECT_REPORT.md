@@ -217,11 +217,11 @@ INPUT: Video File (.mp4, .avi, etc.)
     ↓
 STAGE 1: Frame Extraction (OpenCV)
     ├─ Extract frames using OpenCV
-    ├─ Resize to 240×320 pixels
-    └─ Convert BGR → RGB
+    ├─ Resize to 240x320 pixels
+    └─ Convert BGR -> RGB
     ↓
 STAGE 2: Preprocessing
-    ├─ Grayscale conversion (RGB → Gray)
+    ├─ Grayscale conversion (RGB -> Gray)
     └─ Canny edge detection (threshold: 100, 200)
     ↓
 STAGE 3: Feature Extraction (7 Methods in Parallel)
@@ -238,16 +238,16 @@ STAGE 4: Feature Fusion
     └─ Shape: (240, 320, 12)
     ↓
 STAGE 5: Deep Learning Model
-    ├─ Channel Reduction: Conv2D layers (12→3 channels)
+    ├─ Channel Reduction: Conv2D layers (12->3 channels)
     ├─ ResNet50: Pre-trained feature extractor (frozen)
-    ├─ MaxPooling2D: Spatial downsampling (2×2)
+    ├─ MaxPooling2D: Spatial downsampling (2x2)
     ├─ Global Average Pooling: Flatten features
-    ├─ Dense Layers: Classification (512→256→128→1)
+    ├─ Dense Layers: Classification (512->256->128->1)
     └─ Sigmoid Activation: Binary output
     ↓
 OUTPUT: Probability [0-1]
     ├─ < 0.5: AUTHENTIC
-    └─ ≥ 0.5: FORGED
+    └─ >= 0.5: FORGED
 ```
 
 ### 3.2 Feature Extraction Techniques
@@ -261,7 +261,7 @@ diff = cv2.absdiff(frame_t, frame_t+1)
 ```
 
 **Detects:** Sudden changes, inserted/deleted frames, temporal manipulation
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 #### 2. **DCT (Discrete Cosine Transform)**
 **Purpose:** Detect compression artifacts (Passive forgery)
@@ -272,8 +272,8 @@ dct = cv2.dct(np.float32(gray_frame))
 dct_normalized = cv2.normalize(dct, None, 0, 255, cv2.NORM_MINMAX)
 ```
 
-**Detects:** Double JPEG compression, block artifacts (8×8 blocks), compression inconsistencies
-**Output:** 1 channel (240×320)
+**Detects:** Double JPEG compression, block artifacts (8x8 blocks), compression inconsistencies
+**Output:** 1 channel (240x320)
 
 #### 3. **DWT (Discrete Wavelet Transform)**
 **Purpose:** Multi-resolution texture analysis
@@ -285,7 +285,7 @@ cA, (cH, cV, cD) = coeffs  # 4 sub-bands
 ```
 
 **Detects:** High-frequency artifacts, texture inconsistencies, fine-detail forgeries
-**Output:** 4 channels (approximation + 3 detail coefficients, resized to 240×320×4)
+**Output:** 4 channels (approximation + 3 detail coefficients, resized to 240x320x4)
 
 #### 4. **LBP (Local Binary Patterns)**
 **Purpose:** Local texture pattern analysis
@@ -296,7 +296,7 @@ lbp = local_binary_pattern(gray_frame, n_points=24, radius=3, method='uniform')
 ```
 
 **Detects:** Texture discontinuities, cloning artifacts, surface inconsistencies
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 #### 5. **Binarization**
 **Purpose:** Shape and boundary detection
@@ -307,7 +307,7 @@ _, binary = cv2.threshold(gray_frame, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTS
 ```
 
 **Detects:** Object boundaries, shape inconsistencies, structural changes
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 #### 6. **Morphology Operations**
 **Purpose:** Structural anomaly detection
@@ -329,14 +329,14 @@ closing = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
 
 Extracts patches, computes covariance matrix, and reconstructs using top components:
 ```
-# Extract 8×8 patches
+# Extract 8x8 patches
 # Compute covariance matrix
 # Extract eigenvalues and eigenvectors
 # Reconstruct using top 10 components
 ```
 
 **Detects:** Statistical anomalies, principal component changes, pattern deviations
-**Output:** 1 channel (240×320)
+**Output:** 1 channel (240x320)
 
 ### 3.3 Deep Learning Model Architecture
 
@@ -344,13 +344,13 @@ Extracts patches, computes covariance matrix, and reconstructs using top compone
 ```
 Input Layer: (240, 320, 12)
     ↓
-Conv2D(64, 3×3, padding=same, activation=relu)
+Conv2D(64, 3x3, padding=same, activation=relu)
 BatchNormalization()
     ↓
-Conv2D(32, 3×3, padding=same, activation=relu)
+Conv2D(32, 3x3, padding=same, activation=relu)
 BatchNormalization()
     ↓
-Conv2D(3, 1×1, padding=same, activation=relu)
+Conv2D(3, 1x1, padding=same, activation=relu)
     ↓
 Output: (240, 320, 3)
 ```
@@ -368,7 +368,7 @@ Output: (8, 10, 2048)
 
 #### Classification Head
 ```
-MaxPooling2D (2×2)
+MaxPooling2D (2x2)
 Output: (4, 5, 2048)
     ↓
 Global Average Pooling
@@ -555,25 +555,25 @@ This project successfully demonstrates a **comprehensive, production-ready video
 
 ### Key Achievements:
 
-✅ **Implemented 7 complementary feature extraction methods**
+[OK] **Implemented 7 complementary feature extraction methods**
 - Temporal, frequency, texture, shape, structural, and statistical analysis
 - Hard to fool all methods simultaneously
 
-✅ **Achieved 85-95% accuracy on real-world datasets**
+[OK] **Achieved 85-95% accuracy on real-world datasets**
 - Significant improvement over single-feature baselines (79-90%)
 - Outperforms existing solutions in comprehensive datasets
 
-✅ **Created fully automated pipeline**
+[OK] **Created fully automated pipeline**
 - One-command training: `python run_complete_pipeline.py`
 - One-command prediction: `python predict_video.py video.mp4`
 - No manual configuration required
 
-✅ **Developed interpretable hybrid architecture**
+[OK] **Developed interpretable hybrid architecture**
 - Traditional CV provides explainability
 - Deep learning provides power and scalability
 - Best of both worlds
 
-✅ **Demonstrated significant improvement over baselines**
+[OK] **Demonstrated significant improvement over baselines**
 - 85-95% vs 79% (ResNet50 only)
 - 85-95% vs 75-85% (statistical methods)
 - 85-95% vs 70-80% (keypoint matching)
@@ -697,7 +697,7 @@ India
 
 ---
 
-**Document Status:** ✅ Final | **Version:** 1.0 | **Date:** May 01, 2026
+**Document Status:** [OK] Final | **Version:** 1.0 | **Date:** May 01, 2026
 
 ---
 

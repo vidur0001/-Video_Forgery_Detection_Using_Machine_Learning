@@ -37,14 +37,14 @@ def load_training_data(data_path=None):
     Ytrain_path = os.path.join(data_path, 'Ytrain.npy')
     
     if not os.path.exists(Xtrain_path) or not os.path.exists(Ytrain_path):
-        print(f"❌ Data files not found in {data_path}")
+        print(f"[ERROR] Data files not found in {data_path}")
         print("Please run generate_synthetic_data.py first!")
         return None, None
     
     Xtrain = np.load(Xtrain_path)
     Ytrain = np.load(Ytrain_path)
     
-    print(f"✅ Loaded {len(Xtrain)} training samples")
+    print(f"[OK] Loaded {len(Xtrain)} training samples")
     print(f"   Frame shape: {Xtrain.shape}")
     print(f"   Labels shape: {Ytrain.shape}")
     
@@ -74,7 +74,7 @@ def preprocess_data(Xtrain, Ytrain, use_subset=None):
     
     X_features = batch_extract_all_features(Xtrain)
     
-    print(f"\n✅ Feature extraction complete!")
+    print(f"\n[OK] Feature extraction complete!")
     print(f"   Features shape: {X_features.shape}")
     
     return X_features, Ytrain
@@ -140,7 +140,7 @@ def train_model(X_features, Y, epochs=20, batch_size=32, validation_split=0.2):
         verbose=1
     )
     
-    print("\n✅ Training complete!")
+    print("\n[OK] Training complete!")
     
     return model, history
 
@@ -174,7 +174,7 @@ def plot_training_history(history):
     
     plt.tight_layout()
     plt.savefig('training_history.png', dpi=300, bbox_inches='tight')
-    print("✅ Training history plot saved as 'training_history.png'")
+    print("[OK] Training history plot saved as 'training_history.png'")
     plt.show()
 
 
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     Xtrain, Ytrain = load_training_data()
     
     if Xtrain is None:
-        print("\n❌ Cannot proceed without training data.")
+        print("\n[ERROR] Cannot proceed without training data.")
         print("Run: python generate_small_synthetic_data.py")
         exit(1)
     

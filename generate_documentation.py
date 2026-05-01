@@ -47,7 +47,7 @@ INVENTORS = [
 def create_final_report():
     """Generate Final Project Report PDF"""
 
-    filename = "/c/Users/GunjanMehta/Desktop/patent/Final_Project_Report.pdf"
+    filename = r"C:\Users\GunjanMehta\Desktop\patent\Final_Project_Report.pdf"
 
     # Create PDF document
     doc = SimpleDocTemplate(filename, pagesize=A4, topMargin=0.5*inch, bottomMargin=1*inch)
@@ -817,7 +817,7 @@ def create_final_report():
 
     # Build PDF
     doc.build(story, onFirstPage=add_footer, onLaterPages=add_footer)
-    print(f"✅ Final Project Report created: {filename}")
+    print(f"[OK] Final Project Report created: {filename}")
 
 def add_footer(canvas_obj, doc):
     """Add footer with Chitkara University details"""
@@ -838,7 +838,7 @@ def add_footer(canvas_obj, doc):
     canvas_obj.restoreState()
 
 if __name__ == "__main__":
-    print("🚀 Generating Project Documentation...")
+    print("Generating Project Documentation...")
     create_final_report()
-    print("\n✅ Documentation generation complete!")
-    print("📄 Generated file: Final_Project_Report.pdf")
+    print("\nDocumentation generation complete!")
+    print("Generated file: Final_Project_Report.pdf")

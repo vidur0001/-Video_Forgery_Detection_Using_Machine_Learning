@@ -46,7 +46,7 @@ def build_enhanced_model(input_shape=(240, 320, 12), num_classes=1):
     # Apply ResNet50
     x = base_model(x)
     
-    # Explicit MaxPooling2D (2×2)
+    # Explicit MaxPooling2D (2x2)
     x = MaxPooling2D(pool_size=(2, 2), strides=2, name='max_pooling_explicit')(x)
     
     # Global Average Pooling
@@ -133,7 +133,7 @@ if __name__ == "__main__":
     binary_model = build_enhanced_model(input_shape=(240, 320, 12), num_classes=1)
     binary_model = compile_model(binary_model)
     
-    print(f"✅ Binary model created!")
+    print(f"[OK] Binary model created!")
     print(f"   Input shape: {binary_model.input_shape}")
     print(f"   Output shape: {binary_model.output_shape}")
     print(f"   Total parameters: {binary_model.count_params():,}")
@@ -143,7 +143,7 @@ if __name__ == "__main__":
     active_passive_model = build_active_passive_model(input_shape=(240, 320, 12))
     active_passive_model = compile_model(active_passive_model)
     
-    print(f"✅ Active/Passive model created!")
+    print(f"[OK] Active/Passive model created!")
     print(f"   Input shape: {active_passive_model.input_shape}")
     print(f"   Output shape: {active_passive_model.output_shape}")
     print(f"   Total parameters: {active_passive_model.count_params():,}")

@@ -109,7 +109,7 @@ def batch_extract_all_features(rgb_frames):
         features = extract_all_features(frame)
         all_features.append(features)
     
-    print("✅ Feature extraction complete!")
+    print("[OK] Feature extraction complete!")
     return np.array(all_features)
 
 
@@ -161,4 +161,4 @@ if __name__ == "__main__":
     print("  8: Binary")
     print("  9-10: Morphology (2 channels)")
     print("  11: Eigen")
-    print("✅ Feature combiner working!")
+    print("[OK] Feature combiner working!")

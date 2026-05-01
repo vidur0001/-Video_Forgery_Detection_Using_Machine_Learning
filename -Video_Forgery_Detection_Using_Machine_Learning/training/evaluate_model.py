@@ -40,13 +40,13 @@ def load_test_data(data_path=None):
     Ytest_path = os.path.join(data_path, 'Ytrain.npy')
     
     if not os.path.exists(Xtest_path) or not os.path.exists(Ytest_path):
-        print(f"❌ Data files not found in {data_path}")
+        print(f"[ERROR] Data files not found in {data_path}")
         return None, None
     
     Xtest = np.load(Xtest_path)
     Ytest = np.load(Ytest_path)
     
-    print(f"✅ Loaded {len(Xtest)} test samples")
+    print(f"[OK] Loaded {len(Xtest)} test samples")
     
     return Xtest, Ytest
 
@@ -65,12 +65,12 @@ def evaluate_model(model_path='forgery_model_enhanced.keras', use_subset=100):
     # Load model
     print(f"\nLoading model from {model_path}...")
     if not os.path.exists(model_path):
-        print(f"❌ Model file not found: {model_path}")
+        print(f"[ERROR] Model file not found: {model_path}")
         print("Please train the model first using train_enhanced_model.py")
         return None
     
     model = load_model(model_path)
-    print("✅ Model loaded successfully!")
+    print("[OK] Model loaded successfully!")
     
     # Load test data
     Xtest, Ytest = load_test_data()
@@ -157,7 +157,7 @@ def plot_confusion_matrix(cm, save_path='confusion_matrix.png'):
     plt.xlabel('Predicted Label')
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"✅ Confusion matrix saved as '{save_path}'")
+    print(f"[OK] Confusion matrix saved as '{save_path}'")
     plt.show()
 
 
@@ -188,7 +188,7 @@ def plot_roc_curve(y_true, y_pred_prob, save_path='roc_curve.png'):
     plt.grid(True)
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"✅ ROC curve saved as '{save_path}'")
+    print(f"[OK] ROC curve saved as '{save_path}'")
     plt.show()
 
 
@@ -204,7 +204,7 @@ if __name__ == "__main__":
     )
     
     if results is None:
-        print("\n❌ Evaluation failed.")
+        print("\n[ERROR] Evaluation failed.")
         exit(1)
     
     # Print results
