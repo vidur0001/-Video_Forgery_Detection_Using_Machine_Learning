@@ -1,0 +1,22 @@
+# Requirements for Video Forgery Detection Project
+# Install with: pip install -r requirements.txt
+
+# Core Libraries
+numpy>=1.19.0
+matplotlib>=3.3.0
+opencv-python>=4.5.0
+keras>=2.4.0
+tensorflow>=2.4.0
+scipy>=1.5.0
+scikit-learn>=0.24.0
+
+# Additional Libraries for Advanced Features
+# For Wavelet Transform (DWT)
+PyWavelets>=1.1.1
+
+# For Image Processing (LBP, Morphology, etc.)
+scikit-image>=0.18.0
+Pillow>=8.0.0
+
+# For Numerical Operations
+pandas>=1.2.0
