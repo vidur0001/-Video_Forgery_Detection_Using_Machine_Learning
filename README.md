@@ -1,19 +1,19 @@
-# 🎬 Video Forgery Detection Using Machine Learning
+# Video Forgery Detection Using Machine Learning
 
-## 📋 Overview
+## Overview
 
 An **advanced video forgery detection system** using multi-feature fusion and deep learning.
 
 **Key Features:**
-- ✅ Detects copy-move forgeries and splicing in videos
-- ✅ 7 complementary feature extraction methods
-- ✅ Hybrid approach: Traditional Computer Vision + Deep Learning
-- ✅ Automated training and prediction
-- ✅ Expected accuracy: 85-95% on real datasets
+- Detects copy-move forgeries and splicing in videos
+- 7 complementary feature extraction methods
+- Hybrid approach: Traditional Computer Vision + Deep Learning
+- Automated training and prediction
+- Expected accuracy: 85-95% on real datasets
 
 ---
 
-## 🚀 Quick Start (One Command)
+## Quick Start (One Command)
 
 ```bash
 # 1. Install dependencies
@@ -23,7 +23,7 @@ pip install numpy matplotlib opencv-python keras tensorflow scipy scikit-learn s
 python run_complete_pipeline.py
 ```
 
-**⚠️ Note:** The trained model file (`forgery_model_enhanced.keras` - 94.71 MB) is not included in this repository due to GitHub file size limits. You need to train the model first by running the pipeline above.
+**Note:** The trained model file (`forgery_model_enhanced.keras` - 94.71 MB) is not included in this repository due to GitHub file size limits. You need to train the model first by running the pipeline above.
 
 **That's it!** The system will:
 1. Generate training data automatically
@@ -35,7 +35,7 @@ python run_complete_pipeline.py
 
 ---
 
-## 🎯 How to Use
+## How to Use
 
 ### **1. Train the Model (First Time)**
 ```bash
@@ -53,14 +53,14 @@ python predict_video.py path/to/video.mp4
 
 **Output:**
 ```
-📹 Video: test.mp4
-🎯 Result: FORGED (or AUTHENTIC)
-📊 Confidence: 87.34%
+Video: test.mp4
+Result: FORGED (or AUTHENTIC)
+Confidence: 87.34%
 ```
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### **System Flow:**
 ```
@@ -114,7 +114,7 @@ Output: FORGED or AUTHENTIC
 
 ---
 
-## 📊 Performance
+## Performance
 
 ### **Expected Accuracy:**
 | Dataset Type | Accuracy | Notes |
@@ -128,7 +128,7 @@ Output: FORGED or AUTHENTIC
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Video_Forgery_Detection_Using_Machine_Learning/
@@ -154,8 +154,8 @@ Video_Forgery_Detection_Using_Machine_Learning/
 │   ├── train_enhanced_model.py
 │   └── evaluate_model.py
 │
-├── run_complete_pipeline.py         # ⭐ One-click execution
-├── predict_video.py                  # ⭐ Predict single video
+├── run_complete_pipeline.py         # One-click execution
+├── predict_video.py                  # Predict single video
 ├── generate_small_synthetic_data.py # Auto-generate data
 ├── requirements.txt                  # Dependencies
 ├── README.md                         # This file
@@ -164,7 +164,7 @@ Video_Forgery_Detection_Using_Machine_Learning/
 
 ---
 
-## 🔧 Requirements
+## Requirements
 
 ### **Libraries:**
 ```bash
@@ -178,34 +178,34 @@ pip install numpy matplotlib opencv-python keras tensorflow scipy scikit-learn s
 
 ---
 
-## 📖 Documentation
+## Documentation
 
 1. **README.md** (This file) - Quick start & overview
 2. **TECHNICAL_DOCUMENTATION.md** - Complete technical details
 
 ---
 
-## ✅ What You Get
+## What You Get
 
 After running `python run_complete_pipeline.py`:
 
-1. ✅ Trained model: `forgery_model_enhanced.keras`
-2. ✅ Training plot: `training_history.png`
-3. ✅ Ready to predict: `python predict_video.py video.mp4`
+1. Trained model: `forgery_model_enhanced.keras`
+2. Training plot: `training_history.png`
+3. Ready to predict: `python predict_video.py video.mp4`
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-- ✅ **Automated:** No manual configuration needed
-- ✅ **Comprehensive:** 7 different feature extraction methods
-- ✅ **Accurate:** 85-95% on real datasets
-- ✅ **Fast:** ~10-15 minutes to train
-- ✅ **Production-Ready:** Clean, documented code
+- **Automated:** No manual configuration needed
+- **Comprehensive:** 7 different feature extraction methods
+- **Accurate:** 85-95% on real datasets
+- **Fast:** ~10-15 minutes to train
+- **Production-Ready:** Clean, documented code
 
 ---
 
-## 📞 Quick Help
+## Quick Help
 
 **Problem:** Model not found
 **Solution:** Run `python run_complete_pipeline.py` first
@@ -218,11 +218,11 @@ After running `python run_complete_pipeline.py`:
 
 ---
 
-**Project Status:** ✅ Complete | **Quality:** Production-Ready 🎉
+**Project Status:** Complete | **Quality:** Production-Ready 🎉
 
 ---
 
-## 📚 About The Dataset
+## About The Dataset
 
 This project uses the **Video Copy-Move Forgery Detection Dataset** (REWIND - Politecnico di Milano).
 
@@ -244,7 +244,7 @@ This project uses the **Video Copy-Move Forgery Detection Dataset** (REWIND - Po
 
 ---
 
-## 🎓 Project Information
+## Project Information
 
 **Course:** IOHE (22CS422), Group G-23
 **Institution:** Chitkara University, Patiala
@@ -255,7 +255,7 @@ This project uses the **Video Copy-Move Forgery Detection Dataset** (REWIND - Po
 
 ---
 
-## 🏆 Project Highlights
+## Project Highlights
 
 ### **Why This Project Stands Out:**
 
@@ -273,88 +273,10 @@ This project uses the **Video Copy-Move Forgery Detection Dataset** (REWIND - Po
 
 ---
 
-## 📖 Additional Documentation
-
-For complete technical details, see:
-- **TECHNICAL_DOCUMENTATION.md** - Architecture, algorithms, implementation details
-- **requirements.txt** - Exact dependency versions
-- **Source Code** - Fully documented Python modules
-
----
-
-## 🤝 Contributing
-
-This project is open-source and welcomes contributions!
-
-**How to Contribute:**
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/NewFeature`)
-3. Commit changes (`git commit -m 'Add NewFeature'`)
-4. Push to branch (`git push origin feature/NewFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
-You are free to:
-- ✅ Use commercially
-- ✅ Modify
-- ✅ Distribute
-- ✅ Private use
-
-See [LICENSE](LICENSE) file for full details.
-
----
-
-## 🙏 Acknowledgments
-
-**Special Thanks To:**
-- **Dr. Rajat Takkar** - Project supervisor and guidance
-- **Chitkara University** - Resources and support
-- **Microsoft Research** - ResNet50 architecture
-- **Google Brain** - TensorFlow framework
-- **OpenCV Community** - Computer vision tools
-- **REWIND Dataset** - Politecnico di Milano
-- **SULFA Dataset** - Surrey University
-
 **Research References:**
 - ResNet: Deep Residual Learning for Image Recognition (He et al., 2015)
 - Video Forgery Detection Techniques: A Survey (Qadir et al., 2018)
 - Copy-Move Forgery Detection using Keypoint Features (Amerini et al., 2011)
-
----
-
-## 📧 Contact & Support
-
-**Project Maintainer:** [Your Name]
-**University Email:** [your.email@chitkara.edu.in]
-**GitHub:** [https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-
-**For Issues:**
-- 🐛 Bug reports: [Open an Issue](https://github.com/YOUR_USERNAME/Video-Forgery-Detection/issues)
-- 💡 Feature requests: [Open an Issue](https://github.com/YOUR_USERNAME/Video-Forgery-Detection/issues)
-- 📧 Email: [your.email@chitkara.edu.in]
-
----
-
-## 📌 Citation
-
-If you use this project in your research or work, please cite:
-
-```bibtex
-@misc{video_forgery_detection_2024,
-  title={Video Forgery Detection Using Machine Learning: A Hybrid Multi-Feature Approach},
-  author={Your Name},
-  year={2024},
-  institution={Chitkara University, Patiala},
-  course={IOHE (22CS422)},
-  publisher={GitHub},
-  url={https://github.com/YOUR_USERNAME/Video-Forgery-Detection}
-}
-```
 
 ---
 
@@ -364,7 +286,7 @@ If you find this project useful, please consider giving it a ⭐ on GitHub!
 
 ---
 
-## 📝 Version History
+## Version History
 
 - **v1.0.0** (April 2024) - Initial release
   - 7-feature extraction pipeline
@@ -374,7 +296,7 @@ If you find this project useful, please consider giving it a ⭐ on GitHub!
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 **Potential Improvements:**
 - [ ] Real-time video stream analysis
@@ -384,9 +306,3 @@ If you find this project useful, please consider giving it a ⭐ on GitHub!
 - [ ] Support for more forgery types (deepfakes, face swaps)
 - [ ] Multi-language support
 - [ ] Cloud deployment (AWS/Azure/GCP)
-
----
-
-**Made with ❤️ by [Your Name] | Chitkara University | IOHE Project 2024**
-
-**Status:** ✅ Ready for GitHub Upload | ✅ Ready for Presentation | ✅ Ready for Evaluation
