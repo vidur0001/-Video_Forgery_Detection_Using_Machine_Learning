@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Dataset (optional - can be downloaded)
+video_tampering_dataset/videos/
+video_tampering_dataset/groundtruth/
+
+# Large generated files (will be created after training)
+*.keras
+*.h5
+*.npy
+*.pb
+*.ckpt
+
+# Training outputs
+training_history.png
+*.png
+*.jpg
+*.jpeg
+
+# Large model files (optional - will be generated after training)
+*.keras
+*.h5
+*.pb
+*.ckpt
+
+# Training data files (will be generated)
+*.npy
+
+# Generated images
+*.png
+*.jpg
+*.jpeg
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.log
